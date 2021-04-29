@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "eol-last": "error",
+    "eqeqeq": [
+      "error",
+      "allow-null"
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-trailing-spaces": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": true
+      }
+    ]
+  }
+}
