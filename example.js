@@ -3,8 +3,8 @@ const commands = require('./lib/commands');
 
 let serialPortConfig = {
   baudrate: 9600, // default: 9600
-  databits: 8, // default: 8
-  stopbits: 2, // default: 2
+  databits: 5, // default: 8
+  stopbits: 1, // default: 2
   parity: 'none' // default: 'none'
 };
 
@@ -19,9 +19,41 @@ device.on('CLOSE', () => {
   console.log('Port closed!');
 });
 
+device.on('IDLING', (event) => {
+  console.log(event);
+});
 
-device.open('COM20', serialPortConfig)
-  // .then(() => device.command('SYNC'))
+
+device.open('COM30', serialPortConfig)
+  .then(() => device.enable())
+  .then(() => new Promise(resolve => setTimeout(resolve, 3000)))
+  .then(() => device.disable())
+  .then(console.log)
+  // .then(() => {
+
+  //   // Getting notest information
+  //   const func = (index) => device.command('QUERY_EXPANDED_NOTE_SPECIFICATION', { index }).then((res) => {
+  //     console.log(res)
+  //     console.log('index', index)
+  //     if (res.info.expanded.index) return func(index + 1)
+  //   })
+
+  //   return func(1)
+  // })
+
+  // .then(() => device.command('ENABLE'))
+  // .then(() => device.command('QUERY_EXPANDED_NOTE_SPECIFICATION', { index: 1 }))
+  // .then(() => device.command('ACCEPTOR_VARIANT_NAME'))
+  // .then(() => device.command('ACCEPTOR_VARIANT_VERSION'))
+  // .then(() => device.command('CASH_VALUE_IN_CASSETTE'))
+  // .then(() => device.command('ACCEPTOR_TYPE'))
+  // .then(() => device.command('ACCEPTOR_VARIANT_NAME'))
+  // .then(() => device.command('ACCEPTOR_SERIAL_NUMBER'))
+  // .then(() => device.command('DISABLE'))
+
+
+
+
   // .then(() => device.command('HOST_PROTOCOL_VERSION', { version: 6 }))
   // .then(() => device.initEncryption())
   // .then(() => device.command('GET_SERIAL_NUMBER'))
@@ -41,27 +73,8 @@ device.open('COM20', serialPortConfig)
   // })
   // .then(() => device.command('SET_DENOMINATION_ROUTE', { route: 'payout', value: 10000, country_code: 'RUB' }))
   // .then(() => device.enable())
-  .then(() => device.poll())
-  .then(() => {
+  // .then(() => device.poll())
 
-    // Object.keys(commands).reduce((accumulatorPromise, commmand) => {
-    //   return accumulatorPromise.then(() => {
-    //     return new Promise(resolve => setTimeout(() => {
-    //       console.log('-------------------------')
-    //       console.log(commmand)
-    //       device.command(commmand);
-    //       resolve();
-    //     }, 1000))
-    //   });
-    // }, Promise.resolve());
-
-    // device.command('SETUP')
-
-    // setInterval(() => {
-    //   device.command('ACCEPTOR_TYPE')
-    //   // device.command('ACCEPTOR_SERIAL_NUMBER')
-    // }, 2000)
-  })
   .catch(error => {
     console.log(error);
   });
