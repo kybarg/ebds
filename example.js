@@ -8,7 +8,11 @@ let serialPortConfig = {
   parity: 'none' // default: 'none'
 };
 
-let device = new EBDS();
+let device = new EBDS({
+  acceptorConfig: {
+    escrowMode: false,
+  }
+});
 
 
 device.on('OPEN', () => {
@@ -23,11 +27,94 @@ device.on('IDLING', (event) => {
   console.log(event);
 });
 
+device.on('ACCEPTING', (event) => {
+  console.log(event);
+});
+
+device.on('ESCROWED', (event) => {
+  console.log(event);
+});
+
+device.on('STACKING', (event) => {
+  console.log(event);
+});
+
+device.on('STACKED', (event) => {
+  console.log(event);
+});
+
+device.on('RETURNING', (event) => {
+  console.log(event);
+});
+
+device.on('RETURNED', (event) => {
+  console.log(event);
+});
+
+device.on('CHEATED', (event) => {
+  console.log(event);
+});
+
+device.on('REJECTED', (event) => {
+  console.log(event);
+});
+
+device.on('JAMMED', (event) => {
+  console.log(event);
+});
+
+device.on('CASSETTE_FULL', (event) => {
+  console.log(event);
+});
+
+device.on('LRC_REMOVED', (event) => {
+  console.log(event);
+});
+
+device.on('PAUSED', (event) => {
+  console.log(event);
+});
+
+device.on('CALIBRATION', (event) => {
+  console.log(event);
+});
+
+device.on('POWER_UP', (event) => {
+  console.log(event);
+});
+
+device.on('INVALID_COMMAND', (event) => {
+  console.log(event);
+});
+
+device.on('FAILURE', (event) => {
+  console.log(event);
+});
+
+device.on('NO_PUSH_MODE', (event) => {
+  console.log(event);
+});
+
+device.on('FLASH_DOWNLOAD', (event) => {
+  console.log(event);
+});
+
+device.on('PRESTACK', (event) => {
+  console.log(event);
+});
+
+device.on('ERROR', (event) => {
+  console.log(event);
+});
+
 
 device.open('COM30', serialPortConfig)
+  // .then(() => device.command('RETURN'))
   .then(() => device.enable())
-  .then(() => new Promise(resolve => setTimeout(resolve, 3000)))
-  .then(() => device.disable())
+  // .then(() => new Promise(resolve => setTimeout(resolve, 10000)))
+  // .then(() => device.disable())
+  // .then(() => new Promise(resolve => setTimeout(resolve, 10000)))
+  // .then(() => device.enable())
   .then(console.log)
   // .then(() => {
 

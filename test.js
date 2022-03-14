@@ -46,6 +46,12 @@ const testData = [
     decoded: {
       info: "IDLING-LRC"
     }
+  },
+  {
+    raw: [0x02, 0x1e, 0x70, 0x02, 0x11, 0x10, 0x00, 0x10, 0x55, 0x35, 0x00, 0x55, 0x53, 0x44, 0x30, 0x30, 0x31, 0x2b, 0x30, 0x30, 0x02, 0x43, 0x41, 0x44, 0x42, 0x00, 0x00, 0x00, 0x03, 0x43],
+    decoded: {
+      info: "IDLING-LRC"
+    }
   }]
 
 testData.forEach(({ raw, decoded }) => {
@@ -58,6 +64,6 @@ testData.forEach(({ raw, decoded }) => {
 
   // console.log(res.DATA_BITS_2[0], res.DATA_BITS[0], decoded.info)
 
-  console.log(res)
+  console.log(JSON.stringify(res, null, 2))
   console.log('----------------')
 })
