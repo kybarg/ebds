@@ -1,6 +1,6 @@
 {
   "name": "@kybarg/ebds",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node.js package to work with bill acceptors using EBDS protocol. Linux, OSX and Windows.",
   "main": "lib",
   "scripts": {
