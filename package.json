@@ -4,7 +4,8 @@
   "description": "Node.js package to work with bill acceptors using EBDS protocol. Linux, OSX and Windows.",
   "main": "lib",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint lib",
+    "format": "prettier lib --write"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,10 @@
     }
   ],
   "devDependencies": {
-    "eslint": "^7.24.0"
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^2.7.1"
   },
   "dependencies": {
     "promise-toolbox": "^0.19.1",

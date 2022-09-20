@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "node/no-extraneous-require": [
+      "error",
+      {
+        "allowModules": ["debug"]
+      }
+    ]
+  }
+}
