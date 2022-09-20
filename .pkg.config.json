@@ -1,0 +1,13 @@
+{
+  "name": "ebds",
+  "main": "lib",
+  "bin": "example.js",
+  "pkg": {
+    "assets": [
+      "node_modules/@serialport/bindings/build/Release/bindings.node"
+    ],
+    "targets": [
+      "node14-win-x64"
+    ]
+  }
+}

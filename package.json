@@ -5,7 +5,8 @@
   "main": "lib",
   "scripts": {
     "lint": "eslint lib",
-    "format": "prettier lib --write"
+    "format": "prettier lib --write",
+    "release:test": "pkg ./.pkg.config.json --compress GZip"
   },
   "repository": {
     "type": "git",
