@@ -1,6 +1,6 @@
 {
   "name": "@kybarg/ebds",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Node.js package to work with bill acceptors using EBDS protocol. Linux, OSX and Windows.",
   "main": "lib",
   "scripts": {
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "promise-toolbox": "^0.19.1",
-    "serialport": "^9.0.7"
+    "serialport": "^10.5.0"
   },
   "engines": {
     "node": ">=10.0.0"
