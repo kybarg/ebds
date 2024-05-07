@@ -1,12 +1,12 @@
 const EBDS = require('./lib/index')
-const commands = require('./lib/commands')
+// const commands = require('./lib/commands')
 
-let serialPortConfig = {
-  baudrate: 9600, // default: 9600
-  databits: 7, // default: 8
-  stopbits: 1, // default: 2
-  parity: 'even', // default: 'none'
-}
+// let serialPortConfig = {
+//   baudrate: 9600, // default: 9600
+//   databits: 7, // default: 8
+//   stopbits: 1, // default: 2
+//   parity: 'even', // default: 'none'
+// }
 
 let device = new EBDS({
   acceptorConfig: {
